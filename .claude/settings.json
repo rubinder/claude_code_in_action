@@ -1,15 +1,26 @@
-{"hooks" : {
-"PreToolUse": [
-"matcher": "Read"
-"hooks": [
-"type": "command"
-"command": "node /home/hooks/read_hook.ts"
-}
-"PostToolUse": [
-"matcher": "Write|Edit|MultiEdit",
-"hooks": [
 {
-"type": "command",
-"command": "node /home/hooks/edit_hook.ts"
-}
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /home/hooks/read_hook.ts"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /home/hooks/edit_hook.ts"
+          }
+        ]
+      }
+    ]
+  }
 }
